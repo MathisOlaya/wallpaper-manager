@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "wallpaper-manager (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "wallpaper-manager (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
