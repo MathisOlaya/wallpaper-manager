@@ -14,6 +14,9 @@
     </Window.SystemBackdrop>
 
     <Grid>
+            <Button Width="225" Height="125" Command="{Binding OpenFileExplorerCommand}">
+                <Image Source="/Assets/PlusIcon.png" Width="50"/>
+            </Button>
 
     </Grid>
 </Window>
