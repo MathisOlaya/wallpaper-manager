@@ -32,4 +32,21 @@ namespace wallpaper_manager.ViewModels
             WallPapers.Add(new WallPaper() { ImagePath = "C:\\Users\\PC-Mathis\\Pictures\\OlayaMathis.jpg" });
         }
 
+        [RelayCommand]
+        private async Task OpenFileExplorer()
+        {
+            // Default file dialog | image only
+            FileOpenPicker fileDialog = new FileOpenPicker()
+            {
+                ViewMode = PickerViewMode.Thumbnail,
+                FileTypeFilter = { ".jpeg", ".jpg", ".png"}
+            };
+
+            nint windowHandle = WindowNative.GetWindowHandle(App.Window);
+            InitializeWithWindow.Initialize(fileDialog, windowHandle);
+
+            // Wait for image
+            StorageFile file = await  fileDialog.PickSingleFileAsync();
+
+
 }
