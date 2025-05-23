@@ -26,4 +26,10 @@ namespace wallpaper_manager.ViewModels
         // Importing DLL for desktop wallpaper
         [ObservableProperty]
         ObservableCollection<WallPaper> wallPapers = new();
+
+        public MainViewModel()
+        {
+            WallPapers.Add(new WallPaper() { ImagePath = "C:\\Users\\PC-Mathis\\Pictures\\OlayaMathis.jpg" });
+        }
+
 }
