@@ -24,4 +24,6 @@ namespace wallpaper_manager.ViewModels
     public partial class MainViewModel : ObservableObject
     {
         // Importing DLL for desktop wallpaper
+        [ObservableProperty]
+        ObservableCollection<WallPaper> wallPapers = new();
 }
