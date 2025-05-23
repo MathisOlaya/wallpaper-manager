@@ -67,6 +67,15 @@ namespace wallpaper_manager.ViewModels
             }
         }
 
+        [RelayCommand]
+        private async Task ToggleBackGround(WallPaper clickedWallpaper)
+        {
+            if (File.Exists(clickedWallpaper.ImagePath))
+            {
+                SetWallpaper(clickedWallpaper.ImagePath);
+            }
+        }
+
         // Method for updating desktop background
         private void SetWallpaper(String path)
         {
