@@ -48,5 +48,14 @@ namespace wallpaper_manager.ViewModels
             // Wait for image
             StorageFile file = await  fileDialog.PickSingleFileAsync();
 
+            if (file != null) 
+            { 
+                // Creating new Image
+                WallPaper newImg = new WallPaper() { ImagePath = file.Path };
+
+                // Adding to local list
+                WallPapers.Add(newImg);
+            }
+        }
 
 }
