@@ -47,5 +47,10 @@
                 </DropDownButton.Flyout>
             </DropDownButton>
         </StackPanel>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="10" Margin="0,10,0,0">
+            <TextBlock VerticalAlignment="Center" Text="Appliquer automatiquement l’image en fond d’écran lors de la sauvegarde" />
+            <ToggleSwitch IsOn="{Binding ApplyWallpaperOnSave, Mode=TwoWay}"/>
+        </StackPanel>
     </StackPanel>
 </Page>
