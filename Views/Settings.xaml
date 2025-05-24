@@ -8,4 +8,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:modelview="using:wallpaper_manager.ViewModels">
+
+    <Page.DataContext>
+        <modelview:SettingsViewModel/>
+    </Page.DataContext>
 </Page>
