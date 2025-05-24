@@ -11,4 +11,12 @@ namespace wallpaper_manager.ViewModels
 {
     public partial class SettingsViewModel : ObservableObject
     {
+        [RelayCommand]
+        private void OpenFileExplorer()
+        {
+            // Open file explorer
+            var localPath = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
+
+            System.Diagnostics.Process.Start("explorer.exe", localPath);
+        }
 }
