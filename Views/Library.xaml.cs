@@ -27,6 +27,16 @@ public sealed partial class Library : Page
     public Library()
     {
         InitializeComponent();
+
+        this.Loaded += OnLibraryLoaded;
+    }
+
+    // Wait for library loaded
+    private async void OnLibraryLoaded(object sender, RoutedEventArgs e)
+    {
+        await CheckApiKey();
+    }
+
     private async Task CheckApiKey()
     {
         string? apiKey = Environment.GetEnvironmentVariable("PIXABAY_SECRET");
