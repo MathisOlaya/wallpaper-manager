@@ -14,6 +14,8 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using wallpaper_manager.ViewModels;
 using Windows.Storage.Pickers;
+using wallpaper_manager.Views;
+using System.Threading.Tasks;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -29,8 +31,9 @@ namespace wallpaper_manager
         {
             InitializeComponent();
 
-            // Binding ViewModel
-            this.rootGrid.DataContext = new MainViewModel();
+            // Default page
+            ContentFrame.Navigate(typeof(Views.Home));
+        }
 
     
         private async void NavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
