@@ -80,5 +80,32 @@ namespace wallpaper_manager.ViewModels
             }
             
         }
+
+        [RelayCommand]
+        private async Task AddToCollection(PixabayImage clickedImage)
+        {
+            // Download it localy
+            try
+            {
+                byte[] imageBytes = await client.GetByteArrayAsync(clickedImage.LargeImageURL);
+
+                // Get app data path
+                var localFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                StorageFile file = await localFolder.CreateFileAsync(clickedImage.Id.ToString() + ".jpg", Windows.Storage.CreationCollisionOption.ReplaceExisting);
+
+                // Save it
+                await Windows.Storage.FileIO.WriteBytesAsync(file, imageBytes);
+
+                // Get Final path
+                string path = localFolder.Path + "\\" + clickedImage.Id.ToString() + ".jpg";
+                
+                // Adding this image in personnal collection
+                ViewModels.MainViewModel.wallPapers.Add(new WallPaper() { ImagePath = path });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
+    }
 }
