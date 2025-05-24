@@ -56,6 +56,24 @@ namespace wallpaper_manager.ViewModels
 
                 if(response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
+                    // Read content as string
+                    var stringContent = await response.Content.ReadAsStringAsync();
+
+                    // Deserialize it
+                    PixabayResponse? imagesResponse = JsonSerializer.Deserialize<PixabayResponse>(stringContent);
+
+                   if(imagesResponse.Hits.Count > 0)
+                    {
+                        // Clear old list
+                        Images.Clear();
+
+                        // Get new content
+                        foreach(PixabayImage img in imagesResponse.Hits)
+                        {
+                            Images.Add(img);
+                        }
+                    }
+                }
             } catch(Exception e)
             {
                 Console.WriteLine(e);
