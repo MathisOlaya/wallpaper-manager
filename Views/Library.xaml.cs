@@ -45,6 +45,13 @@ public sealed partial class Library : Page
 
             await alert.ShowAsync();
         }
+
+        // Get VM instance
+        var vm = this.DataContext as ViewModels.LibraryViewModel;
+        vm.API_SECRET_KEY = apiKey;
+
+        // Get placeholder pictures as default
+        _ = vm.Search(String.Empty);
     }
 
     private async void TextBox_KeyDown(object sender, KeyRoutedEventArgs e)

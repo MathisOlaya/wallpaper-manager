@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using System;
 using System.Collections.Generic;
@@ -22,12 +23,16 @@ namespace wallpaper_manager.ViewModels
         // [ CONSTANTS ]
         const string API_BASE_URL = "https://pixabay.com/api/";
 
+        // Variables
+        public string API_SECRET_KEY = string.Empty;
+
         // Http Client
         HttpClient client = new HttpClient();
 
         // List which contains api search result
         [ObservableProperty]
         ObservableCollection<PixabayImage> images = new();
+
         public async Task Search(string entry)
         {
         }
