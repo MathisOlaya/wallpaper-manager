@@ -35,7 +35,6 @@ namespace wallpaper_manager
             ContentFrame.Navigate(typeof(Views.Home));
         }
 
-    
         private async void NavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
             if (args.SelectedItem is NavigationViewItem item)
@@ -49,6 +48,10 @@ namespace wallpaper_manager
                         ContentFrame.Navigate(typeof(Views.Library));
                         break;
                     case "Settings":
+                        ContentFrame.Navigate(typeof(Views.Settings));
+                        break;
+                }
+            }
         }
     }
 }

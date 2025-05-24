@@ -43,6 +43,9 @@ namespace wallpaper_manager.ViewModels
 
             query["key"] = API_SECRET_KEY;
 
+            // Language 
+            query["lang"] = ViewModels.SettingsViewModel.userLanguage.Value;
+
             // Query equal placeholder if entry is empty
             query["q"] = entry.Length == 0 ? "Couché de soleil" : entry;
 
