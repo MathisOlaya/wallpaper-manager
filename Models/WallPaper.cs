@@ -9,6 +9,6 @@ namespace wallpaper_manager.Models
 {
     public class WallPaper
     {
-        public required string ImagePath { get; set; }
+        public string ImagePath { get; set; }
     }
 }
