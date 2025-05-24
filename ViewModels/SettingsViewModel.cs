@@ -11,6 +11,9 @@ namespace wallpaper_manager.ViewModels
 {
     public partial class SettingsViewModel : ObservableObject
     {
+        [ObservableProperty]
+        public static KeyValuePair<string, string> userLanguage = new KeyValuePair<string, string>("English", "en");   // Default EN
+
         [RelayCommand]
         private void OpenFileExplorer()
         {
