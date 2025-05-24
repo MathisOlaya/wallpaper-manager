@@ -33,6 +33,19 @@ namespace wallpaper_manager
             this.rootGrid.DataContext = new MainViewModel();
 
     
+        private async void NavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            if (args.SelectedItem is NavigationViewItem item)
+            {
+                switch (item.Tag)
+                {
+                    case "home":
+                        ContentFrame.Navigate(typeof(Views.Home));
+                        break;
+                    case "library":
+                        ContentFrame.Navigate(typeof(Views.Library));
+                        break;
+                    case "Settings":
         }
     }
 }
