@@ -32,4 +32,20 @@
                 </StackPanel>
             </Button>
         </StackPanel>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Spacing="10" Margin="0, 10, 0, 0">
+            <TextBlock Text="Choisir la langue de recherche" VerticalAlignment="Center"/>
+            <DropDownButton Content="{Binding UserLanguage.Key}">
+                <DropDownButton.Flyout>
+                    <MenuFlyout x:Name="LanguageSelector">
+                        <MenuFlyout.MenuFlyoutPresenterStyle>
+                            <Style TargetType="MenuFlyoutPresenter">
+                                <Setter Property="MaxHeight" Value="300"/>
+                            </Style>
+                        </MenuFlyout.MenuFlyoutPresenterStyle>
+                    </MenuFlyout>
+                </DropDownButton.Flyout>
+            </DropDownButton>
+        </StackPanel>
+    </StackPanel>
 </Page>
