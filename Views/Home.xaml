@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="wallpaper_manager.Views.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:wallpaper_manager.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    xmlns:viewmodels="using:wallpaper_manager.ViewModels">
+
+    <Page.DataContext>
+        <viewmodels:MainViewModel/>
+    </Page.DataContext>
+
+    <StackPanel Orientation="Vertical" Padding="20" Spacing="10">
+        <TextBlock Text="Wall Paper Manager 🖼️" FontSize="24" FontWeight="SemiBold" FontFamily="Calibri"/>
+
+        <Button HorizontalAlignment="Stretch" Height="125" Command="{Binding OpenFileExplorerCommand}">
+            <Image Source="/Assets/PlusIcon.png" Width="50"/>
+        </Button>
+
+        <controls:WrapPanel x:Name="rootGrid">
+            <ItemsControl ItemsSource="{Binding WallPapers}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <controls:WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Width="225" Height="125"
+                            Command="{Binding DataContext.ToggleBackGroundCommand, ElementName=rootGrid}"
+                            CommandParameter="{Binding}">
+                            <Image Source="{Binding ImagePath}" Width="225" Height="125"/>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </controls:WrapPanel>
+        <TextBlock Text="Vous n'avez aucune image pour l'instant." HorizontalAlignment="Center" TextAlignment="Center" FontSize="20" FontWeight="SemiBold" Visibility="{Binding IsEmptyCollectionTextVisible}"/>
+    </StackPanel>
+</Page>

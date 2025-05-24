@@ -34,11 +34,14 @@ namespace wallpaper_manager.ViewModels
 
 
         [ObservableProperty]
-        ObservableCollection<WallPaper> wallPapers = new();
+        public static ObservableCollection<WallPaper> wallPapers = new();
+
+        public bool IsEmptyCollectionTextVisible => WallPapers.Count == 0;
 
         public MainViewModel()
         {
-            WallPapers.Add(new WallPaper() { ImagePath = "C:\\Users\\PC-Mathis\\Pictures\\OlayaMathis.jpg" });
+            // Set text visibility or no
+            WallPapers.CollectionChanged += (s, e) => OnPropertyChanged(nameof(IsEmptyCollectionTextVisible));
         }
 
         [RelayCommand]
@@ -68,7 +71,7 @@ namespace wallpaper_manager.ViewModels
         }
 
         [RelayCommand]
-        private async Task ToggleBackGround(WallPaper clickedWallpaper)
+        private void ToggleBackGround(WallPaper clickedWallpaper)
         {
             if (File.Exists(clickedWallpaper.ImagePath))
             {
