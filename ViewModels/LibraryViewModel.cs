@@ -104,6 +104,12 @@ namespace wallpaper_manager.ViewModels
                 
                 // Adding this image in personnal collection
                 ViewModels.MainViewModel.wallPapers.Add(new WallPaper() { ImagePath = path });
+
+                // Set Image as Background (if settings is on)
+                if (ViewModels.SettingsViewModel.applyWallpaperOnSave)
+                {
+                    ViewModels.MainViewModel.SetWallpaper(path);
+                }
             }
             catch (Exception e)
             {

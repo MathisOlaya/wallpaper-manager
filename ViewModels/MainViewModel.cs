@@ -80,7 +80,7 @@ namespace wallpaper_manager.ViewModels
         }
 
         // Method for updating desktop background
-        private void SetWallpaper(String path)
+        public static void SetWallpaper(String path)
         {
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
             key.SetValue(@"WallpaperStyle", 0.ToString());
