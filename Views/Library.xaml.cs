@@ -27,7 +27,7 @@ public sealed partial class Library : Page
     public Library()
     {
         InitializeComponent();
-
+        
         this.Loaded += OnLibraryLoaded;
     }
 
@@ -60,8 +60,11 @@ public sealed partial class Library : Page
         var vm = this.DataContext as ViewModels.LibraryViewModel;
         vm.API_SECRET_KEY = apiKey;
 
-        // Get placeholder pictures as default
-        _ = vm.Search(String.Empty);
+        // Get placeholder pictures as default (only the first-time)
+        if(vm.Images.Count == 0)
+        {
+            _ = vm.Search(String.Empty);
+        }
     }
 
     private async void TextBox_KeyDown(object sender, KeyRoutedEventArgs e)

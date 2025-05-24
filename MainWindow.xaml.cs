@@ -35,6 +35,11 @@ namespace wallpaper_manager
             ContentFrame.Navigate(typeof(Views.Home));
         }
 
+        // Instance for each pages
+        private Views.Home _homepage = new Views.Home();
+        private Views.Library _library = new Views.Library();
+        private Views.Settings _settings = new Views.Settings();
+
         private async void NavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
             if (args.SelectedItem is NavigationViewItem item)
@@ -42,13 +47,13 @@ namespace wallpaper_manager
                 switch (item.Tag)
                 {
                     case "home":
-                        ContentFrame.Navigate(typeof(Views.Home));
+                        ContentFrame.Content = _homepage;
                         break;
                     case "library":
-                        ContentFrame.Navigate(typeof(Views.Library));
+                        ContentFrame.Content = _library;
                         break;
                     case "Settings":
-                        ContentFrame.Navigate(typeof(Views.Settings));
+                        ContentFrame.Content = _settings;
                         break;
                 }
             }
