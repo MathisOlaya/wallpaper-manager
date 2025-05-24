@@ -27,6 +27,12 @@
 
                 <ItemsControl.ItemTemplate >
                     <DataTemplate>
+                        <Button Margin="5" Command="{Binding DataContext.AddToCollectionCommand, ElementName=content}" CommandParameter="{Binding}">
+                            <ToolTipService.ToolTip>
+                                <StackPanel>
+                                    <TextBlock Text="Cliquer pour ajouter à ma collection" FontWeight="Bold"/>
+                                </StackPanel>
+                            </ToolTipService.ToolTip>
                             <Image Source="{Binding LargeImageURL}" Width="225" Height="125"/>
                         </Button>
                     </DataTemplate>
