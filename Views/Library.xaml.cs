@@ -27,6 +27,24 @@ public sealed partial class Library : Page
     public Library()
     {
         InitializeComponent();
+    private async Task CheckApiKey()
+    {
+        string? apiKey = Environment.GetEnvironmentVariable("PIXABAY_SECRET");
+
+        if (string.IsNullOrEmpty(apiKey))
+        {
+
+            // Displaying alert if user didn't give any API KEY
+            ContentDialog alert = new ContentDialog
+            {
+                Title = "Attention",
+                Content = "Vous n'avez pas renseign� de cl� API pour Pixabay.\nImpossible de faire fonctionner la barre de recherche.\nConsultez le GitHub pour plus d'informations.",
+                CloseButtonText = "Ok",
+                XamlRoot = this.XamlRoot
+            };
+
+            await alert.ShowAsync();
+        }
     }
 
     private async void TextBox_KeyDown(object sender, KeyRoutedEventArgs e)
