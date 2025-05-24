@@ -11,8 +11,12 @@ namespace wallpaper_manager.ViewModels
 {
     public partial class SettingsViewModel : ObservableObject
     {
+        // User SETTINGS
         [ObservableProperty]
         public static KeyValuePair<string, string> userLanguage = new KeyValuePair<string, string>("English", "en");   // Default EN
+
+        [ObservableProperty]
+        public static bool applyWallpaperOnSave = true;
 
         [RelayCommand]
         private void OpenFileExplorer()
