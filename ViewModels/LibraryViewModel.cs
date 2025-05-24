@@ -19,4 +19,7 @@ namespace wallpaper_manager.ViewModels
 {
     public partial class LibraryViewModel : ObservableObject
     {
+        public async Task Search(string entry)
+        {
+        }
 }
