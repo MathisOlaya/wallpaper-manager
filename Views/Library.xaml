@@ -17,4 +17,21 @@
         <TextBlock Text="Effectuer une recherche 🔍" FontSize="24" FontWeight="SemiBold" FontFamily="Calibri"/>
         <TextBox PlaceholderText="Ex: Couché de soleil" KeyDown="TextBox_KeyDown" x:Name="TextBox" Grid.Row="1"/>
 
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2">
+            <ItemsControl ItemsSource="{Binding Images}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <controls:WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate >
+                    <DataTemplate>
+                            <Image Source="{Binding LargeImageURL}" Width="225" Height="125"/>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
 </Page>
