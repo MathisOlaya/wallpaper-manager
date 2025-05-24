@@ -19,6 +19,15 @@ namespace wallpaper_manager.ViewModels
 {
     public partial class LibraryViewModel : ObservableObject
     {
+        // [ CONSTANTS ]
+        const string API_BASE_URL = "https://pixabay.com/api/";
+
+        // Http Client
+        HttpClient client = new HttpClient();
+
+        // List which contains api search result
+        [ObservableProperty]
+        ObservableCollection<PixabayImage> images = new();
         public async Task Search(string entry)
         {
         }
