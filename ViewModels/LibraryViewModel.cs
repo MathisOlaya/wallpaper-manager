@@ -48,5 +48,19 @@ namespace wallpaper_manager.ViewModels
 
             // Full URL
             BaseApiURL.Query = query.ToString();
+
+            try
+            {
+                // Fetching API
+                HttpResponseMessage response = await client.GetAsync(BaseApiURL.ToString());
+
+                if(response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+            } catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            
+        }
         }
 }
