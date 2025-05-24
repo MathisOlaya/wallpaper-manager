@@ -48,7 +48,7 @@ public sealed partial class Library : Page
             ContentDialog alert = new ContentDialog
             {
                 Title = "Attention",
-                Content = "Vous n'avez pas renseignï¿½ de clï¿½ API pour Pixabay.\nImpossible de faire fonctionner la barre de recherche.\nConsultez le GitHub pour plus d'informations.",
+                Content = "Vous n'avez pas renseigné de clé API pour Pixabay.\nImpossible de faire fonctionner la barre de recherche.\nConsultez le GitHub pour plus d'informations.",
                 CloseButtonText = "Ok",
                 XamlRoot = this.XamlRoot
             };

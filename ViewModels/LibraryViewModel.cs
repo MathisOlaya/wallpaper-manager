@@ -35,5 +35,18 @@ namespace wallpaper_manager.ViewModels
 
         public async Task Search(string entry)
         {
+            // Hostname  
+            UriBuilder BaseApiURL = new UriBuilder(API_BASE_URL);
+
+            // Define query parameters
+            var query = HttpUtility.ParseQueryString(BaseApiURL.Query);
+
+            query["key"] = API_SECRET_KEY;
+
+            // Query equal placeholder if entry is empty
+            query["q"] = entry.Length == 0 ? "Couché de soleil" : entry;
+
+            // Full URL
+            BaseApiURL.Query = query.ToString();
         }
 }
