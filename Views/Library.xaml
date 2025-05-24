@@ -15,4 +15,6 @@
 
     <Grid Padding="20" RowDefinitions="Auto,Auto,*" RowSpacing="10" x:Name="content">
         <TextBlock Text="Effectuer une recherche 🔍" FontSize="24" FontWeight="SemiBold" FontFamily="Calibri"/>
+        <TextBox PlaceholderText="Ex: Couché de soleil" KeyDown="TextBox_KeyDown" x:Name="TextBox" Grid.Row="1"/>
+
 </Page>
