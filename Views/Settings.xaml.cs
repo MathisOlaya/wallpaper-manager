@@ -27,4 +27,21 @@ public sealed partial class Settings : Page
     public Settings()
     {
         InitializeComponent();
+
+        // Get ViewModel instance
+        var vm = this.DataContext as ViewModels.SettingsViewModel;
+
+        // Init all language
+        foreach(KeyValuePair<string, string> country in GlobalHelpers.Languages)
+        {
+            this.LanguageSelector.Items.Add(
+                new MenuFlyoutItem
+                {
+                    Text = country.Key,
+                    Tag = country.Value,
+                    Command = vm.UpdateApiLanguageCommand,
+                    CommandParameter = country
+                });
+        }
+    }
 }
