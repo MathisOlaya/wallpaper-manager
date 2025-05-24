@@ -63,9 +63,9 @@ namespace wallpaper_manager.ViewModels
                     var stringContent = await response.Content.ReadAsStringAsync();
 
                     // Deserialize it
-                    PixabayResponse? imagesResponse = JsonSerializer.Deserialize<PixabayResponse>(stringContent);
+                    PixabayResponse? imagesResponse = JsonSerializer.Deserialize<PixabayResponse>(stringContent, PixabayJsonContext.Default.PixabayResponse);
 
-                   if(imagesResponse.Hits.Count > 0)
+                    if (imagesResponse.Hits.Count > 0)
                     {
                         // Clear old list
                         Images.Clear();
