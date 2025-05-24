@@ -22,4 +22,11 @@ namespace wallpaper_manager.ViewModels
 
             System.Diagnostics.Process.Start("explorer.exe", localPath);
         }
+
+        [RelayCommand]
+        private void UpdateApiLanguage(KeyValuePair<string, string> language)
+        {
+            UserLanguage = new KeyValuePair<string, string>(language.Key, language.Value);
+        }
+    }
 }
