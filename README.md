@@ -22,8 +22,6 @@ To use the search feature, you need a Pixabay API key:
 2. Visit the API documentation page: [pixabay.com/api/docs](https://pixabay.com/api/docs/)  
 3. Scroll down to the **Parameters** section and copy your *API KEY*  
 
-![API Key Screenshot](https://github.com/user-attachments/assets/77c9d6fc-25a3-4621-9c59-51f16edd7679)
-
 ---
 
 ### Set your environment variable
